@@ -28,8 +28,7 @@ function OrderForm({ onOrderPlaced }) {
         };
 
         try {
-            const response = await fetch('https://YOUR-NGROK-URL.ngrok-free.app/api/orders', {
-    method: 'POST',
+            const response = await fetch('https://a1b2-c3d4.ngrok-free.app/api/orders', {    method: 'POST',
     headers: { 
         'Content-Type': 'application/json',
         'ngrok-skip-browser-warning': 'true'
