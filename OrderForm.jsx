@@ -21,8 +21,8 @@ function OrderForm({ onOrderPlaced }) {
 
         // The data we will send to the backend
         const newOrder = {
-            customer_name: customerName,
-            item_name: itemName,
+            customer_name: studentId, 
+            item_name: selectedItem,
             quantity: quantity,
             total_price: totalPrice
         };
