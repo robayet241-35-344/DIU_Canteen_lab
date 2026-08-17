@@ -28,14 +28,14 @@ function OrderForm({ onOrderPlaced }) {
         };
 
         try {
-            const response = await fetch('https://some-random-words.loca.lt/api/orders', {
-                method: 'POST',
-                headers: { 
-                    'Content-Type': 'application/json',
-                    'Bypass-Tunnel-Remainder': 'true'
-                },
-                body: JSON.stringify(newOrder)
-            });
+            const response = await fetch('https://solid-pens-lay.loca.lt/api/orders', {
+            method: 'POST',
+            headers: { 
+                'Content-Type': 'application/json',
+                'Bypass-Tunnel-Remainder': 'true'
+            },
+            body: JSON.stringify(newOrder)
+        });
 
             if (response.ok) {
                 alert('Order placed successfully!');
