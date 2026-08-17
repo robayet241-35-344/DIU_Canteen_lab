@@ -28,11 +28,14 @@ function OrderForm({ onOrderPlaced }) {
         };
 
         try {
-            const response = await fetch('http://localhost:5000/api/orders', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(newOrder)
-            });
+            const response = await fetch('https://good-toes-beam.loca.lt/api/orders', {
+            method: 'POST',
+            headers: { 
+                'Content-Type': 'application/json',
+                'Bypass-Tunnel-Remainder': 'true'
+            },
+            body: JSON.stringify(newOrder)
+        });
 
             if (response.ok) {
                 alert('Order placed successfully!');

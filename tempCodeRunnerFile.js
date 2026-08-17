@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const db = require('./db');
+const db = require('./db'); // promise pool use krbe
 
 const app = express();
 app.use(cors());
@@ -18,11 +18,11 @@ app.get('/api/orders', async (req, res) => {
 
 // Create new order
 app.post('/api/orders', async (req, res) => {
-    const { customer_name, item_name, quantity, total_price } = req.body;
+    const { name, items, total } = req.body;
     try {
         const [result] = await db.query(
-            'INSERT INTO orders (customer_name, item_name, quantity, total_price) VALUES (?, ?, ?, ?)',
-            [customer_name, item_name, quantity, total_price]
+            'INSERT INTO orders (name, items, total) VALUES (?, ?, ?)',
+            [name, items, total]
         );
         res.json({ message: 'Order placed successfully', id: result.insertId });
     } catch (err) {
